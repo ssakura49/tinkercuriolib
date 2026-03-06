@@ -2,3 +2,16 @@
 /.gradle/
 /build/
 /build/classes/java/main/
+/.idea/.gitignore
+/.idea/compiler.xml
+/.idea/gradle.xml
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/runConfigurations/runClient.xml
+/.idea/runConfigurations/runData.xml
+/.idea/runConfigurations/runGameTestServer.xml
+/.idea/runConfigurations/runServer.xml
+/.idea/modules/tinkercuriolib.main.iml
+/.idea/modules/tinkercuriolib.test.iml
+/.idea/vcs.xml
