@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: tinkercuriolib
+Specification-Vendor: ssakura49
+Specification-Version: 1
+Implementation-Title: tinkercuriolib
+Implementation-Version: 1.0
+Implementation-Vendor: ssakura49
+Implementation-Timestamp: 2026-02-19T00:23:11+0800
+

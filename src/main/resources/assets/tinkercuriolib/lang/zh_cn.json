@@ -1,0 +1,17 @@
+{
+  "tool_stat.tinkercuriolib.movement_speed": "移动速度：",
+  "tool_stat.tinkercuriolib.movement_speed.description": "能够提高多少点移动速度。",
+  "tool_stat.tinkercuriolib.armor": "护甲：",
+  "tool_stat.tinkercuriolib.armor.description": "能够为你提高多少点护甲值。",
+  "tool_stat.tinkercuriolib.armor_toughness": "护甲韧性：",
+  "tool_stat.tinkercuriolib.armor_toughness.description": "能够提高多少点护甲韧性。",
+  "tool_stat.tinkercuriolib.damage": "攻击伤害：",
+  "tool_stat.tinkercuriolib.damage.description": "能够为你提高多少点攻击伤害。",
+  "tool_stat.tinkercuriolib.health": "生命：",
+  "tool_stat.tinkercuriolib.health.description": "能够为你提供多少点生命。",
+  "tool_stat.tinkercuriolib.attack_speed": "攻击速度：",
+  "tool_stat.tinkercuriolib.attack_speed.description": "能够为你提供多少点攻击速度。",
+  "tool_stat.tinkercuriolib.projectile_bonus_curio": "弹射物伤害:",
+  "tool_stat.tinkercuriolib.projectile_bonus_curio.description": "能够为你提供多少点弹射物伤害。"
+}
+
