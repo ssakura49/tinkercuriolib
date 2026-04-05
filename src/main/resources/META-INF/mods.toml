@@ -17,7 +17,7 @@ license="GNU LGPL 3.0"
 # The modid of the mod
 modId="tinkercuriolib" #mandatory
 # The version number of the mod
-version="1.0.1" #mandatory
+version="1.0.2" #mandatory
 # A display name for the mod
 displayName="TinkerCurioLib" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://docs.minecraftforge.net/en/latest/misc/updatechecker/
