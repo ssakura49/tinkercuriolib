@@ -1,7 +1,8 @@
 package com.ssakura49.tinkercuriolib.hook.behavior;
 
-import com.ssakura49.tinkercuriolib.event.ItemStackDamageEvent;
 import java.util.Collection;
+
+import com.ssakura49.sakura_library.event.entity.ItemStackDamageEvent;
 import net.minecraft.world.entity.LivingEntity;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;

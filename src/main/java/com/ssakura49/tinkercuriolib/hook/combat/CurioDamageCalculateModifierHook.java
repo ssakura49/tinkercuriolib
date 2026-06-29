@@ -1,7 +1,8 @@
 package com.ssakura49.tinkercuriolib.hook.combat;
 
-import com.ssakura49.tinkercuriolib.event.LivingDamageCalculationEvent;
 import java.util.Collection;
+
+import com.ssakura49.sakura_library.event.entity.LivingDamageCalculationEvent;
 import net.minecraft.world.entity.LivingEntity;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;

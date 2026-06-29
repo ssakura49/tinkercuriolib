@@ -28,6 +28,7 @@ public class TinkerCurioLib {
     public TinkerCurioLib(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
+        modEventBus.addListener(this::registerSerializers);
         TCTagKey.init();
     }
 

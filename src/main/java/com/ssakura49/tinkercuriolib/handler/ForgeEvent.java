@@ -1,8 +1,8 @@
 package com.ssakura49.tinkercuriolib.handler;
 
+import com.ssakura49.sakura_library.event.entity.ItemStackDamageEvent;
+import com.ssakura49.sakura_library.event.entity.LivingDamageCalculationEvent;
 import com.ssakura49.tinkercuriolib.content.ProjectileImpactContent;
-import com.ssakura49.tinkercuriolib.event.ItemStackDamageEvent;
-import com.ssakura49.tinkercuriolib.event.LivingDamageCalculationEvent;
 import com.ssakura49.tinkercuriolib.hook.TCLibHooks;
 import com.ssakura49.tinkercuriolib.hook.armor.CurioTakeDamagePostModifierHook;
 import com.ssakura49.tinkercuriolib.hook.armor.CurioTakeDamagePreModifierHook;
