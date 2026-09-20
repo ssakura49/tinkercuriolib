@@ -14,7 +14,7 @@ public interface CurioProjectileLaunchModifierHook {
     }
 
     public static record AllMerger(Collection<CurioProjectileLaunchModifierHook> modules) implements CurioProjectileLaunchModifierHook {
-        public void onCurioProjectileShoot(IToolStackView curio, ModifierEntry entry, LivingEntity shooter, Projectile projectile, @Nullable AbstractArrow arrow, ModDataNBT persistentData) {
+        public void onCurioProjectileLaunch(IToolStackView curio, ModifierEntry entry, LivingEntity shooter, Projectile projectile, @Nullable AbstractArrow arrow, ModDataNBT persistentData) {
             for(CurioProjectileLaunchModifierHook module : this.modules) {
                 module.onCurioProjectileLaunch(curio, entry, shooter, projectile, arrow, persistentData);
             }

@@ -12,8 +12,6 @@ public class TCLibBaseModifier extends Modifier
 {
     protected void registerHooks(ModuleHookMap.@NotNull Builder builder) {
         super.registerHooks(builder);
-        builder.addHook(this
-        );
     }
 
     public boolean isNoLevels() {
