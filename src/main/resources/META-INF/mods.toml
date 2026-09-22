@@ -73,9 +73,3 @@ mandatory=true
 versionRange="[5.10.0+1.20.1,)"
 ordering="AFTER"
 side="BOTH"
-[[dependencies."tinkercuriolib"]]
-modId="sakura_library"
-mandatory=true
-versionRange="[1.0.3.1,)"
-ordering="AFTER"
-side="BOTH"
