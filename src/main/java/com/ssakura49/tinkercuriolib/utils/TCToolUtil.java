@@ -15,6 +15,7 @@ import slimeknights.tconstruct.common.TinkerTags.Items;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.library.tools.stat.IToolStat;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
 import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
@@ -60,6 +61,17 @@ public class TCToolUtil {
 
         }));
         return list;
+    }
+
+    public static float getCurioStatTotal(LivingEntity entity, IToolStat<Float> stat) {
+        float total = 0.0F;
+        for (ItemStack stack : getStacks(entity)) {
+            if (!isTool(stack)) {
+                continue;
+            }
+            total += ToolStack.from(stack).getStats().get(stat);
+        }
+        return total;
     }
 
     public static List<ItemStack> getAllToolStackInCurios(LivingEntity entity, Predicate<ItemStack> predicate) {

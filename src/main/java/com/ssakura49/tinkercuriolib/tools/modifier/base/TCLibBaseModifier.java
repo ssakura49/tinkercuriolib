@@ -17,6 +17,7 @@ public class TCLibBaseModifier extends Modifier
     public boolean isNoLevels() {
         return false;
     }
+
     @Override
     public @NotNull Component getDisplayName(int level) {
         return this.isNoLevels() ? super.getDisplayName() : super.getDisplayName(level);

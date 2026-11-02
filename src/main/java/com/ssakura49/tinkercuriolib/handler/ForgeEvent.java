@@ -41,6 +41,8 @@ import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
+import java.util.List;
+
 @EventBusSubscriber(
         modid = "tinkercuriolib",
         bus = Bus.FORGE
@@ -198,42 +200,31 @@ public class ForgeEvent {
 
     }
 
-    @SubscribeEvent(
-            priority = EventPriority.HIGH
-    )
+    @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onProjectileDamage(LivingHurtEvent event) {
-        DamageSource source = event.getSource();
-        Entity entity = source.getDirectEntity();
-        if (!event.isCanceled() && entity instanceof Projectile projectile) {
-            Entity shooter = projectile.getOwner();
-            if (shooter instanceof LivingEntity livingEntity) {
-                entity.getCapability(EntityModifierCapability.CAPABILITY).ifPresent((cap) -> {
-                    ModDataNBT nbt = PersistentDataCapability.getOrWarn(entity);
-                    ModifierNBT modifiers = cap.getModifiers();
-                    float baseDamage = event.getAmount();
-                    float damage = baseDamage;
-
-                    for(ItemStack stack : TCToolUtil.getStacks(livingEntity)) {
-                        ToolStack curio = ToolStack.from(stack);
-
-                        for(ModifierEntry entry : curio.getModifierList()) {
-                            CurioProjectileDamageModifierHook hook = (CurioProjectileDamageModifierHook)entry.getHook(TCLibHooks.CURIO_PROJECTILE_DAMAGE);
-                            AbstractArrow var10005;
-                            if (projectile instanceof AbstractArrow arrow) {
-                                var10005 = arrow;
-                            } else {
-                                var10005 = null;
-                            }
-
-                            damage = hook.getProjectileDamage(nbt, entry, modifiers, projectile, var10005, livingEntity, event.getEntity(), baseDamage, damage);
-                        }
-                    }
-
-                    event.setAmount(damage);
-                });
+        var log = com.mojang.logging.LogUtils.getLogger();
+        Entity direct = event.getSource().getDirectEntity();
+        if (!(direct instanceof Projectile projectile)) return;
+        Entity shooter = projectile.getOwner();
+        if (!(shooter instanceof LivingEntity living)) {
+            //log.info("[TCL] 箭无 owner: {}", direct.getType());
+            return;
+        }
+        List<ItemStack> stacks = TCToolUtil.getStacks(living);
+        //log.info("[TCL] 命中 shooter={} curios={} arrowMods={}", living.getName().getString(), stacks.size(), EntityModifierCapability.getOrEmpty(projectile).getModifiers().size());
+        float damage = event.getAmount();
+        for (ItemStack stack : stacks) {
+            ToolStack curio = ToolStack.from(stack);
+            //log.info("[TCL] curio={} modifiers={}", stack.getDescriptionId(), curio.getModifierList().size());
+            for (ModifierEntry entry : curio.getModifierList()) {
+                var hook = entry.getHook(TCLibHooks.CURIO_PROJECTILE_DAMAGE);
+                //log.info("[TCL] entry={} hook={}", entry.getDisplayName(), hook == TCLibHooks.CURIO_PROJECTILE_DAMAGE.getDefaultInstance() ? "DEFAULT(未注册!)" : hook);
+                damage = hook.getProjectileDamage(PersistentDataCapability.getOrWarn(projectile), entry,
+                        EntityModifierCapability.getOrEmpty(projectile), projectile,
+                        projectile instanceof AbstractArrow a ? a : null, living, event.getEntity(), event.getAmount(), damage);
             }
         }
-
+        event.setAmount(damage);
     }
 
     @SubscribeEvent
